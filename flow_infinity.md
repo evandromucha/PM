@@ -103,3 +103,13 @@ flowchart TB
   PG -->|Decisions, change authorization| PLAN
   MON -->|Compliance evidence| COMP
   PG -->|Escalations| OG
+If you tell me whether your organization runs mostly predictive, agile, or hybrid, I’ll tailor the diagram labels (e.g., stage gates vs. sprint reviews, product vs. project emphasis) to match your reality.
+
+Sources
+This response is powered by PMI's Knowledgebase.
+1
+PMBOK Guide 8th Edition.
+Standards,Section: 1.3.4 Relationship of Portfolio, Program, Project, and Operations Management,Page: 31
+Pode fazer isso baseado no PMBOK 7 e, onde for possível, mostrar onde podemos usar preditivo, ágil ou híbrido?
+
+
