@@ -1,115 +1,102 @@
 flowchart TB
-  %% Enterprise-to-Value Delivery flow with governance, compliance, monitoring, and stakeholders
+  %% PMBOK® Guide – Seventh Edition aligned view
+  %% Organizational System for Value Delivery + Performance Domains
+  %% Showing where Predictive / Agile (Adaptive) / Hybrid commonly fit
 
-  %% --- Enterprise context / direction ---
-  subgraph E[Enterprise Context & Direction]
-    VVM[Values • Vision • Mission]
-    STRAT[Organizational Strategy & Objectives]
-    POL[Policies • Ethical/Social Responsibilities • Risk Appetite]
+  subgraph ORG["Organization & Context (System for Value Delivery)"]
+    VVM["Values • Vision • Mission"]
+    STRAT["Strategy & Objectives"]
     VVM --> STRAT
-    VVM --> POL
-    POL --> STRAT
-  end
 
-  %% --- Governance overlay (organizational + project) ---
-  subgraph GOV[Governance (Direction & Control)]
-    OG[Organizational Governance
-(Board/Exec Committee)]
-    PG[Project/Program/Portfolio Governance
-(Boards, decision models, RACI, stage gates)]
-    OG --> PG
-  end
+    EEF["Enterprise Environment<br/>(culture, structure, market, tech, etc.)"]
+    COMP["Compliance Environment<br/>(laws, regulators, standards)"]
 
-  %% Governance influences strategy and execution
-  OG -.sets principles & oversight.-> STRAT
-  PG -.authorizes & controls.-> EXEC
+    EEF -. influences .-> STRAT
+    COMP -. constrains .-> STRAT
 
-  %% --- System for Value Delivery ---
-  subgraph SVD[System for Value Delivery]
-    PORT[Portfolio]
-    PROG[Programs]
-    OPS[Operations]
-    PROD[Products]
-    PROJ[Projects]
+    PORT["Portfolio"]
+    PROG["Program(s)"]
+    OPS["Operations & Product Mgmt"]
+
     STRAT --> PORT
     PORT --> PROG
-    PORT --> PROJ
-    PROG --> PROJ
-    PROJ --> PROD
-    PROD --> OPS
+    STRAT --> OPS
   end
 
-  %% --- Project execution / delivery ---
-  subgraph EXEC[Project Delivery (Lifecycle)]
-    INIT[Initiate / Charter]
-    PLAN[Plan]
-    DO[Execute]
-    MON[Monitor & Control]
-    CLOSE[Close / Transition]
-    INIT --> PLAN --> DO --> MON --> CLOSE
+  %% Governance Performance Domain
+  subgraph GOVPD["Governance Performance Domain"]
+    OG["Organizational Governance<br/>(board / executives)"]
+    PG["Project Governance<br/>(decision rights, reporting,<br/>change control, escalation)"]
+
+    OG --> PG
+
+    G_TAIL["Tailoring Signal:<br/>
+    Predictive → formal controls<br/>
+    Agile → lighter governance via events & artifacts<br/>
+    Hybrid → mixed controls based on risk"]
   end
 
-  %% Value realization / outcomes
-  CLOSE --> OUT[Outputs & Outcomes]
-  OUT --> VALUE[Value Delivered (Benefits/Value)]
+  OG -. oversight .-> STRAT
+  PG -. authorizes / steers .-> PROJ
+  G_TAIL --- PG
+
+  %% Project Level (Performance Domains)
+  subgraph PROJ["Project (PMBOK7 Performance Domains)"]
+    direction["Stakeholders PD<br/>identify, analyze, engage"]
+    team["Team PD<br/>culture, leadership, collaboration"]
+    plan["Planning PD<br/>plans, estimates, baselines / rolling wave"]
+    work["Work PD<br/>produce deliverables, manage flow"]
+    delivery["Delivery PD<br/>incremental or complete delivery"]
+    measure["Measurement PD<br/>metrics, forecasts, transparency"]
+    uncertainty["Uncertainty PD<br/>risk, ambiguity, complexity"]
+
+    direction --> team --> plan --> work --> delivery --> measure --> uncertainty
+    measure --> plan
+    uncertainty --> plan
+  end
+
+  %% Connections
+  PROG --> PROJ
+
+  delivery --> VALUE["Value / Benefits Realization"]
+  VALUE --> OPS
   VALUE --> STRAT
 
-  %% --- Stakeholders & external/internal influences ---
-  subgraph STK[Stakeholders & Needs]
-    CUST[Customers / Users]
-    SPON[Sponsor]
-    TEAM[Project Team]
-    OPSM[Operations / Service Owners]
-    SUP[Suppliers / Partners]
-    COMM[Community / Society]
+  STK["Key Stakeholders<br/>
+  customers, sponsor, PMO,<br/>
+  suppliers, functions, community"] --> direction
+
+  COMP --> PG
+  COMP --> plan
+  COMP --> measure
+
+  %% Development Approaches
+  subgraph APPR["Development Approaches (Tailored)"]
+    PRED["Predictive<br/>
+    • scope & schedule baselined<br/>
+    • stage gates<br/>
+    • formal change control"]
+
+    AGILE["Agile / Adaptive<br/>
+    • iterative delivery<br/>
+    • timeboxed planning<br/>
+    • self-managed teams"]
+
+    HYB["Hybrid<br/>
+    • predictive governance<br/>
+    • agile execution<br/>
+    • mixed cadence"]
   end
 
-  %% Stakeholder relationships to project and value
-  CUST -->|Needs & acceptance criteria| PLAN
-  SPON -->|Funding, priorities, decisions| INIT
-  TEAM -->|Delivery| DO
-  OPSM -->|Operational readiness & transition| CLOSE
-  SUP -->|Contracts, deliverables| DO
-  COMM -->|Expectations & impact| STRAT
+  %% Mapping approach tendencies
+  PRED -. stronger fit .-> plan
+  PRED -. stronger fit .-> PG
+  PRED -. stronger fit .-> measure
 
-  %% --- Regulators, compliance, and assurance ---
-  subgraph COMP[Regulators • Compliance • Assurance]
-    REG[Regulators / Laws]
-    STD[Industry Standards]
-    AUD[Audit / Assurance]
-    SEC[Security / Privacy / Safety]
-  end
+  AGILE -. stronger fit .-> work
+  AGILE -. stronger fit .-> delivery
+  AGILE -. stronger fit .-> team
 
-  REG -->|Requirements| PLAN
-  STD -->|Constraints & practices| PLAN
-  SEC -->|Controls| DO
-  AUD -->|Independent review| MON
-
-  %% --- Enterprise Environmental Factors (influences/constraints) ---
-  subgraph EEF[Influences (Enterprise Environmental Factors)]
-    CULT[Culture • Structure • Leadership]
-    MARKET[Market / Competition]
-    TECH[Technology Landscape]
-    ECO[Economic / Geopolitical]
-  end
-
-  CULT -.influences.-> INIT
-  MARKET -.influences.-> STRAT
-  TECH -.constraints/opportunities.-> PLAN
-  ECO -.risks/constraints.-> MON
-
-  %% --- Monitoring, reporting, and feedback loops ---
-  MON -->|Performance data, risk/issues| PG
-  PG -->|Decisions, change authorization| PLAN
-  MON -->|Compliance evidence| COMP
-  PG -->|Escalations| OG
-If you tell me whether your organization runs mostly predictive, agile, or hybrid, I’ll tailor the diagram labels (e.g., stage gates vs. sprint reviews, product vs. project emphasis) to match your reality.
-
-Sources
-This response is powered by PMI's Knowledgebase.
-1
-PMBOK Guide 8th Edition.
-Standards,Section: 1.3.4 Relationship of Portfolio, Program, Project, and Operations Management,Page: 31
-Pode fazer isso baseado no PMBOK 7 e, onde for possível, mostrar onde podemos usar preditivo, ágil ou híbrido?
-
-
+  HYB -. common fit .-> plan
+  HYB -. common fit .-> delivery
+  HYB -. common fit .-> PG
