@@ -3,10 +3,10 @@ flowchart TD
 
 %% IDENTIDADE E ESTRATÉGIA
 subgraph Estrategia [IDENTIDADE E ESTRATÉGIA]
-    VAL[Valores Éticos, Responsabilidade, Respeito, Equidade, Honestidade]
-    VIS[Visão \nOnde a empresa quer chegar]
-    MIS[Missão \nPropósito organizacional]
-    OKR[OKRs\n Objetivos e Resultados-Chave]
+    VAL["Valores Éticos<br>Responsabilidade, Respeito, Equidade, Honestidade"]
+    VIS["Visão<br>Onde a empresa quer chegar"]
+    MIS["Missão<br>Propósito organizacional"]
+    OKR["OKRs<br>Objetivos e Resultados-Chave"]
 
     VAL --> VIS --> MIS --> OKR
 end
@@ -14,17 +14,17 @@ end
 %% INFLUÊNCIAS E GOVERNANÇA
 subgraph Influencias [INFLUÊNCIAS E GOVERNANÇA]
     direction LR
-    FAE[FAEs\nMercado, Cultura, Ambiente]
-    APO[APOs\nTemplates, Políticas, Lições]
-    GOV{Governança\nRegras e Tomada de Decisão}
+    FAE["FAEs<br>Mercado, Cultura, Ambiente"]
+    APO["APOs<br>Templates, Políticas, Lições"]
+    GOV{"Governança<br>Regras e Tomada de Decisão"}
 end
 
 %% SISTEMA DE ENTREGA DE VALOR
 subgraph GOP [SISTEMA DE ENTREGA DE VALOR]
-    PORT[Gerenciamento de Portfólios\nAlinhamento Estratégico]
-    PROG[Gerenciamento de Programas\nObtenção de Benefícios]
-    PROJ[Gerenciamento de Projetos\nResultados Únicos]
-    OPER[Operações\nValor Recorrente]
+    PORT["Gerenciamento de Portfólios<br>Alinhamento Estratégico"]
+    PROG["Gerenciamento de Programas<br>Obtenção de Benefícios"]
+    PROJ["Gerenciamento de Projetos<br>Resultados Únicos"]
+    OPER["Operações<br>Valor Recorrente"]
 
     PORT --> PROG
     PROG --> PROJ
@@ -33,13 +33,13 @@ end
 
 %% FLUXO DE EXECUÇÃO
 subgraph Fluxo [FLUXO DE EXECUÇÃO E ENTREGA]
-    START[Iniciação\nTermo de Abertura]
-    ROAD[Roadmap\nDireção do Produto]
-    LIFE{Ciclo de Vida}
-    PRED[Preditivo\nFase a Fase]
-    ADAP[Adaptativo\nIncremental / Ágil]
-    ENTREGA[Entrega e Transição]
-    BENE[Realização de Benefícios]
+    START["Iniciação<br>Termo de Abertura"]
+    ROAD["Roadmap<br>Direção do Produto"]
+    LIFE{"Ciclo de Vida"}
+    PRED["Preditivo<br>Fase a Fase"]
+    ADAP["Adaptativo<br>Incremental / Ágil"]
+    ENTREGA["Entrega e Transição"]
+    BENE["Realização de Benefícios"]
 
     START --> ROAD --> LIFE
     LIFE --> PRED
