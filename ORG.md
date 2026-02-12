@@ -16,14 +16,14 @@ subgraph Influencias [INFLUÊNCIAS E GOVERNANÇA]
     direction LR
     FAE["FAEs<br>Mercado, Cultura, Ambiente"]
     APO["APOs<br>Templates, Políticas, Lições"]
-    GOV{"Governança<br>Regras e Tomada de Decisão"}
+    GOV{"Governança<br>Direcionamento e Conformidade"}
 end
 
 %% SISTEMA DE ENTREGA DE VALOR
 subgraph GOP [SISTEMA DE ENTREGA DE VALOR]
-    PORT["Gerenciamento de Portfólios<br>Alinhamento Estratégico"]
-    PROG["Gerenciamento de Programas<br>Obtenção de Benefícios"]
-    PROJ["Gerenciamento de Projetos<br>Resultados Únicos"]
+    PORT["Portfólio<br>Alinhamento Estratégico"]
+    PROG["Programas<br>Obtenção de Benefícios"]
+    PROJ["Projeto<br>Entrega de Resultados"]
     OPER["Operações<br>Valor Recorrente"]
 
     PORT --> PROG
@@ -31,28 +31,37 @@ subgraph GOP [SISTEMA DE ENTREGA DE VALOR]
     PORT --> OPER
 end
 
-%% FLUXO DE EXECUÇÃO
-subgraph Fluxo [FLUXO DE EXECUÇÃO E ENTREGA]
-    START["Iniciação<br>Termo de Abertura"]
-    ROAD["Roadmap<br>Direção do Produto"]
-    LIFE{"Ciclo de Vida"}
-    PRED["Preditivo<br>Fase a Fase"]
-    ADAP["Adaptativo<br>Incremental / Ágil"]
-    ENTREGA["Entrega e Transição"]
-    BENE["Realização de Benefícios"]
+%% DOMÍNIOS DE PERFORMANCE DO PROJETO (PMBOK 7)
+subgraph Dominios [DOMÍNIOS DE PERFORMANCE]
+    STK["Stakeholders"]
+    TEAM["Team"]
+    PLAN["Planning"]
+    DEV["Development Approach"]
+    WORK["Project Work<br>Qualidade e Controle Integrado"]
+    MEAS["Measurement<br>Monitoramento de Desempenho"]
+    UNC["Uncertainty<br>Monitoramento de Riscos"]
+    DEL["Delivery"]
 
-    START --> ROAD --> LIFE
-    LIFE --> PRED
-    LIFE --> ADAP
-    PRED --> ENTREGA
-    ADAP --> ENTREGA
-    ENTREGA --> BENE
+    STK --> TEAM --> PLAN --> DEV --> WORK --> MEAS --> UNC --> DEL
 end
 
-%% CONEXÕES ENTRE CAMADAS
+%% FLUXO DE VALOR
+subgraph Valor [FLUXO DE VALOR]
+    ENT["Entregas"]
+    OUT["Outcomes"]
+    BEN["Benefícios"]
+    VALOR["Valor Organizacional"]
+
+    ENT --> OUT --> BEN --> VALOR
+end
+
+%% CONEXÕES
 OKR --> PORT
-PROJ --> START
+PROJ --> STK
 FAE -.-> PROJ
 APO -.-> PROJ
 GOV -.-> GOP
+DEL --> ENT
+MEAS -.-> GOV
+UNC -.-> GOV
 ```
