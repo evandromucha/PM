@@ -1,61 +1,58 @@
+```mermaid
 flowchart TD
-    %% Nível Estratégico: Identidade Organizacional
-    subgraph Estrategia ["IDENTIDADE E ESTRATÉGIA"]
-        VAL["<b>Valores Éticos</b><br/>(Responsabilidade, Respeito, Equidade, Honestidade)"]
-        VIS["<b>Visão</b><br/>(Onde a empresa quer chegar)"]
-        MIS["<b>Missão</b><br/>(Propósito predeterminado)"]
-        OKR["<b>OKRs</b><br/>(Objetivos e Resultados-Chave)"]
-        
-        VAL --> VIS --> MIS --> OKR
-    end
 
-    %% Influências e Governança
-    subgraph Influencias ["INFLUÊNCIAS E GOVERNANÇA"]
-        direction LR
-        FAE["<b>FAE</b><br/>(Fatores Ambientais: Mercado, Cultura)"]
-        APO["<b>APO</b><br/>(Ativos de Processos: Templates, Lições)"]
-        GOV{{"<b>Governança</b><br/>(Regras e Tomada de Decisão)"}}
-    end
+%% IDENTIDADE E ESTRATÉGIA
+subgraph Estrategia [IDENTIDADE E ESTRATÉGIA]
+    VAL[Valores Éticos\nResponsabilidade, Respeito, Equidade, Honestidade]
+    VIS[Visão\nOnde a empresa quer chegar]
+    MIS[Missão\nPropósito organizacional]
+    OKR[OKRs\nObjetivos e Resultados-Chave]
 
-    %% GOP: Sistema de Entrega de Valor
-    subgraph GOP ["GOP: SISTEMA DE ENTREGA DE VALOR"]
-        PORT["<b>Gerenciamento de Portfólios</b><br/>(Alinhamento de Investimentos)"]
-        PROG["<b>Gerenciamento de Programas</b><br/>(Obtenção de Benefícios)"]
-        PROJ["<b>Gerenciamento de Projetos</b><br/>(Criação de Resultados Únicos)"]
-        OPER["<b>Operações</b><br/>(Geração Recorrente de Valor)"]
-        
-        PORT --> PROG
-        PROG --> PROJ
-        PORT --> OPER
-    end
+    VAL --> VIS --> MIS --> OKR
+end
 
-    %% Fluxo de Entrega
-    subgraph Fluxo ["FLUXO DE EXECUÇÃO E ENTREGA"]
-        START["<b>Iniciação</b><br/>(Termo de Abertura e Visão)"]
-        ROAD["<b>Roadmap</b><br/>(Direção do Produto)"]
-        LIFE{"<b>Ciclo de Vida</b>"}
-        PRED["<b>Preditivo</b><br/>(Fase a Fase)"]
-        ADAP["<b>Adaptativo</b><br/>(Incremental/Ágil)"]
-        ENTREGA["<b>Entrega e Transição</b><br/>(Passagem para o Cliente)"]
-        BENE["<b>Realização de Benefícios</b><br/>(Sustentabilidade do Valor)"]
-        
-        START --> ROAD --> LIFE
-        LIFE --> PRED
-        LIFE --> ADAP
-        PRED --> ENTREGA
-        ADAP --> ENTREGA
-        ENTREGA --> BENE
-    end
+%% INFLUÊNCIAS E GOVERNANÇA
+subgraph Influencias [INFLUÊNCIAS E GOVERNANÇA]
+    direction LR
+    FAE[FAEs\nMercado, Cultura, Ambiente]
+    APO[APOs\nTemplates, Políticas, Lições]
+    GOV{Governança\nRegras e Tomada de Decisão}
+end
 
-    %% Conexões entre camadas
-    OKR --> PORT
-    PROJ --> START
-    FAE -.-> PROJ
-    APO -.-> PROJ
-    GOV -.-> GOP
+%% SISTEMA DE ENTREGA DE VALOR
+subgraph GOP [SISTEMA DE ENTREGA DE VALOR]
+    PORT[Gerenciamento de Portfólios\nAlinhamento Estratégico]
+    PROG[Gerenciamento de Programas\nObtenção de Benefícios]
+    PROJ[Gerenciamento de Projetos\nResultados Únicos]
+    OPER[Operações\nValor Recorrente]
 
-    %% Estilização para o GitHub
-    style Estrategia fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style Influencias fill:#fff4dd,stroke:#d4a017,stroke-width:2px
-    style GOP fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style Fluxo fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    PORT --> PROG
+    PROG --> PROJ
+    PORT --> OPER
+end
+
+%% FLUXO DE EXECUÇÃO
+subgraph Fluxo [FLUXO DE EXECUÇÃO E ENTREGA]
+    START[Iniciação\nTermo de Abertura]
+    ROAD[Roadmap\nDireção do Produto]
+    LIFE{Ciclo de Vida}
+    PRED[Preditivo\nFase a Fase]
+    ADAP[Adaptativo\nIncremental / Ágil]
+    ENTREGA[Entrega e Transição]
+    BENE[Realização de Benefícios]
+
+    START --> ROAD --> LIFE
+    LIFE --> PRED
+    LIFE --> ADAP
+    PRED --> ENTREGA
+    ADAP --> ENTREGA
+    ENTREGA --> BENE
+end
+
+%% CONEXÕES ENTRE CAMADAS
+OKR --> PORT
+PROJ --> START
+FAE -.-> PROJ
+APO -.-> PROJ
+GOV -.-> GOP
+```
