@@ -3,7 +3,7 @@ flowchart TD
 
 %% IDENTIDADE E ESTRATÉGIA
 subgraph Estrategia [IDENTIDADE E ESTRATÉGIA]
-    VAL[Valores Éticos/nResponsabilidade, Respeito, Equidade, Honestidade]
+    VAL[Valores Éticos, Responsabilidade, Respeito, Equidade, Honestidade]
     VIS[Visão \nOnde a empresa quer chegar]
     MIS[Missão \nPropósito organizacional]
     OKR[OKRs\n Objetivos e Resultados-Chave]
