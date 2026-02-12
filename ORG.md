@@ -3,46 +3,53 @@ flowchart TD
 
 %% IDENTIDADE E ESTRATÉGIA
 subgraph Estrategia [IDENTIDADE E ESTRATÉGIA]
-    VAL["Valores Éticos<br>Responsabilidade, Respeito, Equidade, Honestidade"]
-    VIS["Visão<br>Onde a empresa quer chegar"]
-    MIS["Missão<br>Propósito organizacional"]
-    OKR["OKRs<br>Objetivos e Resultados-Chave"]
+    VAL["Valores Éticos"]
+    VIS["Visão"]
+    MIS["Missão"]
+    OKR["OKRs"]
 
     VAL --> VIS --> MIS --> OKR
 end
 
-%% INFLUÊNCIAS E GOVERNANÇA
-subgraph Influencias [INFLUÊNCIAS E GOVERNANÇA]
+%% GOVERNANÇA
+subgraph Influencias [GOVERNANÇA E INFLUÊNCIAS]
     direction LR
-    FAE["FAEs<br>Mercado, Cultura, Ambiente"]
-    APO["APOs<br>Templates, Políticas, Lições"]
+    FAE["FAEs"]
+    APO["APOs"]
     GOV{"Governança<br>Direcionamento e Conformidade"}
 end
 
 %% SISTEMA DE ENTREGA DE VALOR
 subgraph GOP [SISTEMA DE ENTREGA DE VALOR]
-    PORT["Portfólio<br>Alinhamento Estratégico"]
-    PROG["Programas<br>Obtenção de Benefícios"]
-    PROJ["Projeto<br>Entrega de Resultados"]
-    OPER["Operações<br>Valor Recorrente"]
+    PORT["Portfólio"]
+    PROG["Programas"]
+    PROJ["Projeto"]
+    OPER["Operações"]
 
     PORT --> PROG
     PROG --> PROJ
     PORT --> OPER
 end
 
-%% DOMÍNIOS DE PERFORMANCE DO PROJETO (PMBOK 7)
-subgraph Dominios [DOMÍNIOS DE PERFORMANCE]
+%% DOMÍNIOS DE PERFORMANCE
+subgraph Dominios [DOMÍNIOS DE PERFORMANCE - PMBOK 7]
+
     STK["Stakeholders"]
     TEAM["Team"]
-    PLAN["Planning"]
-    DEV["Development Approach"]
-    WORK["Project Work<br>Qualidade e Controle Integrado"]
-    MEAS["Measurement<br>Monitoramento de Desempenho"]
-    UNC["Uncertainty<br>Monitoramento de Riscos"]
-    DEL["Delivery"]
 
-    STK --> TEAM --> PLAN --> DEV --> WORK --> MEAS --> UNC --> DEL
+    DEV["Development Approach & Life Cycle<br>Preditivo | Ágil | Híbrido"]
+
+    PLAN["Planning<br>Preditivo: Planejamento detalhado<br>Ágil: Planejamento adaptativo<br>Híbrido: Rolling Wave"]
+
+    WORK["Project Work<br>Execução conforme abordagem escolhida"]
+
+    MEAS["Measurement<br>Métricas tradicionais | Métricas ágeis"]
+
+    UNC["Uncertainty<br>Gestão de riscos e adaptação"]
+
+    DEL["Delivery<br>Entrega única | Incremental | Iterativa"]
+
+    STK --> TEAM --> DEV --> PLAN --> WORK --> MEAS --> UNC --> DEL
 end
 
 %% FLUXO DE VALOR
