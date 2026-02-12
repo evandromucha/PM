@@ -1,4 +1,5 @@
-graph TD
+flowchart TD
+
     %% Nível Estratégico: O Topo da Pirâmide
     subgraph Estrategia [IDENTIDADE E ESTRATÉGIA ORGANIZACIONAL]
         VAL[<b>Valores Éticos</b><br/>Responsabilidade, Respeito, Equidade e Honestidade] 
