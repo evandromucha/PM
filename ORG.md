@@ -1,3 +1,6 @@
+# Modelo PMBOK 7 - Sistema de Entrega de Valor
+
+```mermaid
 flowchart TD
 
 A[Organização] --> B[Sistema de Entrega de Valor]
@@ -15,3 +18,4 @@ G --> K[Entregas]
 K --> L[Outcomes]
 L --> M[Benefícios]
 M --> N[Valor Organizacional]
+```
